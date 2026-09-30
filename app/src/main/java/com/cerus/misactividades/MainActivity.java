@@ -696,10 +696,20 @@ public class MainActivity extends Activity {
         noteInput.setInputType(InputType.TYPE_CLASS_TEXT
                 | InputType.TYPE_TEXT_FLAG_MULTI_LINE
                 | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
-        NoteLinks.enableWebLinks(noteInput, themePreferences.primaryAction());
+        TextView linksPreview = new TextView(this);
+        linksPreview.setTextSize(15);
+        linksPreview.setTextColor(themePreferences.secondaryText());
+        linksPreview.setPadding(0, 0, 0, dp(8));
+        content.addView(linksPreview, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
         content.addView(noteInput, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
+        NoteLinks.bindEditorPreview(
+                noteInput,
+                linksPreview,
+                themePreferences.primaryAction());
 
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.note_dialog_title, task.getTitle()))
