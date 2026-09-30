@@ -136,7 +136,7 @@
     <string name="add_note_description">Agregar nota a %1$s</string>
     <string name="open_note_description">Leer o editar nota de %1$s</string>
     <string name="note_dialog_title">Nota · %1$s</string>
-    <string name="note_hint">Ej.:\n- Comprar shampoo\n- Comprar jabón\n- Comprar agua</string>
+    <string name="note_hint">Ej.:\n- Comprar shampoo\n- Comprar jabón\nhttps://www.ejemplo.com</string>
     <string name="save_note">Guardar</string>
     <string name="delete_note">Borrar nota</string>
     <string name="widget_title">Widget de actividades</string>

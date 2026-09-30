@@ -386,6 +386,7 @@ public class CalendarActivity extends Activity {
             note.setText(getString(R.string.calendar_note, item.note));
             note.setTextSize(13);
             note.setTextColor(themePreferences.secondaryText());
+            NoteLinks.enableWebLinks(note, themePreferences.primaryAction());
             LinearLayout.LayoutParams noteParams = matchWrap();
             noteParams.setMargins(0, dp(6), 0, 0);
             card.addView(note, noteParams);

@@ -430,12 +430,23 @@ public class HistoryActivity extends Activity {
         noteButton.setContentDescription(getString(
                 R.string.history_view_note_description,
                 entry.getTitle()));
-        noteButton.setOnClickListener(view -> new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.note_dialog_title, entry.getTitle()))
-                .setMessage(entry.getNote())
-                .setPositiveButton(R.string.close, null)
-                .show());
+        noteButton.setOnClickListener(view -> showReadOnlyNoteDialog(entry));
         return noteButton;
+    }
+
+    private void showReadOnlyNoteDialog(TaskHistoryRepository.Entry entry) {
+        TextView note = new TextView(this);
+        note.setText(entry.getNote());
+        note.setTextSize(16);
+        note.setTextColor(themePreferences.primaryText());
+        note.setPadding(dp(20), dp(8), dp(20), dp(8));
+        NoteLinks.enableWebLinks(note, themePreferences.primaryAction());
+
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.note_dialog_title, entry.getTitle()))
+                .setView(note)
+                .setPositiveButton(R.string.close, null)
+                .show();
     }
 
     private void showOverdueNoteDialog(TaskHistoryRepository.Entry entry) {
@@ -452,6 +463,7 @@ public class HistoryActivity extends Activity {
         noteInput.setInputType(InputType.TYPE_CLASS_TEXT
                 | InputType.TYPE_TEXT_FLAG_MULTI_LINE
                 | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        NoteLinks.enableWebLinks(noteInput, themePreferences.primaryAction());
         content.addView(noteInput, matchWrap());
 
         AlertDialog dialog = new AlertDialog.Builder(this)

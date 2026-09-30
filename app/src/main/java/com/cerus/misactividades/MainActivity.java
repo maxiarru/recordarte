@@ -696,6 +696,7 @@ public class MainActivity extends Activity {
         noteInput.setInputType(InputType.TYPE_CLASS_TEXT
                 | InputType.TYPE_TEXT_FLAG_MULTI_LINE
                 | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        NoteLinks.enableWebLinks(noteInput, themePreferences.primaryAction());
         content.addView(noteInput, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));

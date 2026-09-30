@@ -6,7 +6,7 @@ Los datos de tareas, notas, historial y preferencias se guardan únicamente en e
 almacenamiento privado de la aplicación en el teléfono; nunca forman parte del código
 subido a GitHub.
 
-## Funciones actuales (versión 0.39.0)
+## Funciones actuales (versión 0.40.0)
 
 - Crear actividades.
 - Marcar actividades como realizadas.
@@ -43,6 +43,8 @@ subido a GitHub.
   después de ese plazo queda bloqueada hasta finalizar el día.
 - Guardar una nota local de varias líneas en cada tarea, con opciones para leerla,
   editarla o borrarla desde el botón **Nota**.
+- Detectar direcciones `http`, `https` y `www` dentro de las notas y abrirlas en el
+  navegador al tocarlas desde la tarea, el historial o el calendario.
 - Desplazar verticalmente todas las tareas disponibles desde el widget, sin el
   límite anterior de tres elementos.
 - Consultar desde el historial la nota guardada con cada tarea finalizada o vencida.
@@ -110,7 +112,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 También se puede copiar el APK al teléfono, abrirlo y autorizar la instalación desde esa fuente.
 
-Al abrir la versión 0.39.0 por primera vez, Android solicita permiso para mostrar
+Al abrir la versión 0.40.0 por primera vez, Android solicita permiso para mostrar
 notificaciones. Los recordatorios se conservan localmente y se vuelven a programar
 después de reiniciar el teléfono.
 
